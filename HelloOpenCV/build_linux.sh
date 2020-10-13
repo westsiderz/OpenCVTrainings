@@ -1,10 +1,10 @@
 #!/bin/sh
 
-rm -rf build
-mkdir build
+rm -rf ../build
+mkdir ../build
 
-cmake -S . -B build
+cmake -G "Eclipse CDT4 - Unix Makefiles" -S . -B ../build
 
-cd build
+cd ../build
 
 make
