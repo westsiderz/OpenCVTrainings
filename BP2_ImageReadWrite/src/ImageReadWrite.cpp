@@ -3,7 +3,7 @@
 
 using namespace cv;
 
-int main(int argc, char** argv )
+int main()
 {
     Mat image;
     image = imread( "../tesla.jpg", IMREAD_COLOR );
