@@ -8,7 +8,7 @@ cd ../build
 SET MSBUILD=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe
 IF NOT EXIST "%MSBUILD%" GOTO NOMSB
 
-"%MSBUILD%" ImageReadWrite.sln /t:rebuild /p:configuration=Debug /m
+"%MSBUILD%" ImageMatrix.sln /t:rebuild /p:configuration=Debug /m
 GOTO :EOF
 
 :NOMSB

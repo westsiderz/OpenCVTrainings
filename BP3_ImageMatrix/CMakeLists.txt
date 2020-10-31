@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 
-project( ImageReadWrite )
+project( ImageMatrix )
 
-set(SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/ImageReadWrite.cpp)
+set(SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/ImageMatrix.cpp)
 
 add_executable( ${PROJECT_NAME} ${SOURCE_FILES} )
 
