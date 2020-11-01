@@ -4,7 +4,7 @@
 
 using namespace cv;
 
-void testMat()
+void initMat()
 {
     std::string l_pathToInputImage{ "../Resources/city.jpg" };
 
@@ -40,14 +40,14 @@ void reduceColor(uchar f_reductionValue)
         return;
     }
 
-    size_t l_channels = l_image1.channels();
-    size_t l_rows = l_image1.rows;
-    size_t l_columns = l_image1.cols * l_channels;
+    int l_channels = l_image1.channels();
+    int l_rows = l_image1.rows;
+    int l_columns = l_image1.cols * l_channels;
 
-    for (size_t i = 0; i < l_rows; ++i)
+    for (int i = 0; i < l_rows; ++i)
     {
         uchar* row = l_image1.ptr<uchar>(i);
-        for (size_t j = 0; j < l_columns; ++j)
+        for (int j = 0; j < l_columns; ++j)
         {
             if (row[j] - f_reductionValue < 0)
             {
@@ -77,7 +77,7 @@ void increaseColor(uchar f_reductionValue)
         return;
     }
 
-    size_t l_channels = l_image1.channels();
+    int l_channels = l_image1.channels();
     if (l_channels == 1)
     {
         for (auto l_iterator = l_image1.begin<uchar>();
@@ -144,12 +144,12 @@ void invertColor()
         return;
     }
 
-    size_t l_channels = l_image1.channels();
+    int l_channels = l_image1.channels();
     if (l_channels == 1)
     {
-        for (size_t i = 0; i < l_image1.rows; ++i)
+        for (int i = 0; i < l_image1.rows; ++i)
         {
-            for (size_t j = 0; j < l_image1.cols; ++j)
+            for (int j = 0; j < l_image1.cols; ++j)
             {
                 l_image1.at<uchar>(i, j) = 255 - l_image1.at<uchar>(i, j);
             }
@@ -159,9 +159,9 @@ void invertColor()
     {
         Mat_<Vec3b> l_image2 = l_image1;
 
-        for (size_t i = 0; i < l_image1.rows; ++i)
+        for (int i = 0; i < l_image1.rows; ++i)
         {
-            for (size_t j = 0; j < l_image1.cols; ++j)
+            for (int j = 0; j < l_image1.cols; ++j)
             {
                 l_image2(i, j)[0] = 255 - l_image2(i, j)[0];
                 l_image2(i, j)[1] = 255 - l_image2(i, j)[1];
@@ -178,9 +178,11 @@ void invertColor()
 
 int main()
 {
-    //reduceColor(100);
-    //increaseColor(100);
+     initMat();
+    // reduceColor(100);
+    // increaseColor(100);
     invertColor();
+
     waitKey(0);
     return 0;
 }
