@@ -176,12 +176,39 @@ void invertColor()
     imshow("Result", l_image1);
 }
 
+void invertColorUsingLut()
+{
+    std::string l_pathToInputImage{ "../Resources/city.jpg" };
+
+    Mat l_image1, l_image2;
+    l_image1 = imread(l_pathToInputImage, IMREAD_COLOR);
+
+    if (!l_image1.data)
+    {
+        std::cout << "No image data \n";
+        return;
+    }
+
+    Mat l_lookupTable( 1, 256, CV_8U );
+    auto* p_lookUp = l_lookupTable.ptr();
+    for (int i = 0; i < 256; ++i)
+    {
+        p_lookUp[i] = 255 - i;
+    }
+
+    LUT(l_image1, l_lookupTable, l_image2);
+
+    namedWindow("Result", WINDOW_NORMAL);
+    imshow("Result", l_image2);
+}
+
 int main()
 {
-     initMat();
+    // initMat();
     // reduceColor(100);
     // increaseColor(100);
     invertColor();
+    // invertColorUsingLut();
 
     waitKey(0);
     return 0;
