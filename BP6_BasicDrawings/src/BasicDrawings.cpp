@@ -35,7 +35,7 @@ void drawRectangles()
     Mat l_image = Mat::zeros(cMatrixHeigth, cMatrixWidth, CV_8UC3);
     
     int l_thickness = 5;
-	int l_lineType = LINE_8;
+	int l_lineType = FILLED;
 	
 	rectangle( l_image, Point(0,0),
 		Point(cMatrixWidth, cMatrixHeigth),
@@ -65,12 +65,73 @@ void drawRectangles()
     imshow("Output", l_image);
 }
 
+void drawCircles()
+{
+    Mat l_image = Mat::zeros(cMatrixHeigth, cMatrixWidth, CV_8UC3);
 
+    int l_thickness = 5;
+    int l_lineType = FILLED;
+    int l_radius = cMatrixHeigth;
+
+    circle(l_image,
+        Point(cMatrixWidth/2, cMatrixHeigth/2),
+        l_radius/2,
+        Scalar(255, 0, 0),
+        l_thickness,
+        l_lineType);
+
+    l_thickness = FILLED;
+    l_lineType = LINE_8;
+
+    circle(l_image,
+        Point(cMatrixWidth / 2, cMatrixHeigth / 2),
+        l_radius/4,
+        Scalar(0, 0, 255),
+        l_thickness,
+        l_lineType);
+
+    namedWindow("Output", WINDOW_NORMAL);
+    imshow("Output", l_image);
+}
+
+void drawElipses()
+{
+    Mat l_image = Mat::zeros(cMatrixHeigth, cMatrixWidth, CV_8UC3);
+
+    int l_thickness = 3;
+    int l_lineType = LINE_4;
+    int l_angle = 45;
+
+    ellipse(l_image,
+        Point(cMatrixWidth / 2, cMatrixHeigth / 2),
+        Size(cMatrixHeigth / 4, cMatrixHeigth / 16),
+        l_angle,
+        0,
+        360,
+        Scalar(255, 0, 0),
+        l_thickness,
+        l_lineType);
+
+    l_thickness = FILLED;
+    l_lineType = LINE_8;
+    l_angle = 90;
+
+    ellipse(l_image,
+        RotatedRect(Point2f(cMatrixWidth / 2, cMatrixHeigth / 2), Size2f(cMatrixHeigth / 4, cMatrixHeigth / 16), static_cast<float>(l_angle)),
+        Scalar(0, 0, 255),
+        l_thickness,
+        l_lineType);
+
+    namedWindow("Output", WINDOW_NORMAL);
+    imshow("Output", l_image);
+}
 
 int main()
 {
     //drawLines();
-	drawRectangles();
+	//drawRectangles();
+    //drawCircles();
+    drawElipses();
 	
     waitKey(0);
     return 0;
