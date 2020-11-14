@@ -126,12 +126,87 @@ void drawElipses()
     imshow("Output", l_image);
 }
 
+void drawPolygones()
+{
+    Mat l_image = Mat::zeros(cMatrixHeigth, cMatrixWidth, CV_8UC3);
+
+    int l_lineType = LINE_4;
+    
+    // Fill Poly
+    
+    Point l_triangle1[1][3];
+    l_triangle1[0][0] = Point{50, 100};
+    l_triangle1[0][1] = Point{100, 50};
+    l_triangle1[0][2] = Point{150, 100};
+    
+    const Point* l_trianglePoints1[1] = { l_triangle1[0] };
+	int l_numberOfPoints[] = { 3 };
+	
+	fillPoly( l_image,
+        l_trianglePoints1,
+        l_numberOfPoints,
+        1,
+        Scalar( 0, 0, 255 ),
+        l_lineType );
+            
+    Mat l_triangle2 = Mat::zeros(1, 3, CV_32SC2);
+    int* l_triangle2Ptr = l_triangle2.ptr<int>(0);
+    l_triangle2Ptr[0] = 150;
+    l_triangle2Ptr[1] = 100;
+    l_triangle2Ptr[2] = 200;
+    l_triangle2Ptr[3] = 50;
+    l_triangle2Ptr[4] = 250;
+    l_triangle2Ptr[5] = 100;
+          
+    InputArrayOfArrays l_trianglePoints2(l_triangle2);
+	
+	fillPoly( l_image,
+        l_trianglePoints2,
+        Scalar( 0, 255, 0 ),
+        l_lineType );
+        
+    
+    // Fill Convex Poly
+    
+    const Point l_triangle3[1][3] = {
+							Point{250, 100}, 
+							Point{300, 50},
+							Point{350, 100} };
+	const Point* l_trianglePoints3 = { l_triangle3[0] };
+	
+	fillConvexPoly( l_image,
+        l_trianglePoints3,
+        3,
+        Scalar( 255, 0, 0 ),
+        l_lineType );
+            
+    Mat l_triangle4 = Mat::zeros(1, 3, CV_32SC2);
+    int* l_triangle4Ptr = l_triangle4.ptr<int>(0);
+    l_triangle4Ptr[0] = 350;
+    l_triangle4Ptr[1] = 100;
+    l_triangle4Ptr[2] = 400;
+    l_triangle4Ptr[3] = 50;
+    l_triangle4Ptr[4] = 450;
+    l_triangle4Ptr[5] = 100;
+          
+    InputArray l_trianglePoints4(l_triangle4);
+	
+	fillConvexPoly( l_image,
+        l_trianglePoints4,
+        Scalar( 0, 255, 255 ),
+        l_lineType );
+
+    namedWindow("Output", WINDOW_NORMAL);
+    imshow("Output", l_image);
+}
+
 int main()
 {
     //drawLines();
 	//drawRectangles();
     //drawCircles();
-    drawElipses();
+    //drawElipses();
+    drawPolygones();
 	
     waitKey(0);
     return 0;
