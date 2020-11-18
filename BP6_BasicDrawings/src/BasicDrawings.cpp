@@ -152,7 +152,7 @@ void drawElipses()
     imshow("Output", l_image);
 }
 
-void drawPolygones()
+void drawPolygons()
 {
     Mat l_image = Mat::zeros(cMatrixHeigth, cMatrixWidth, CV_8UC3);
 
@@ -268,7 +268,7 @@ void drawPolygones()
     // Draw an empty polygon using an OpenCV function
     polylines(l_image,
         l_trianglePoints6,
-        true, Scalar(255, 0, 255));
+        false, Scalar(255, 0, 255));
 
     // Display the result
     namedWindow("Output", WINDOW_NORMAL);
@@ -281,7 +281,7 @@ int main()
 	//drawRectangles();
     //drawCircles();
     //drawElipses();
-    drawPolygones();
+    drawPolygons();
 	
     waitKey(0);
     return 0;
