@@ -15,3 +15,5 @@ add_subdirectory(BP5_BrightnessAdjustment)
 add_subdirectory(BP6_BasicDrawings)
 
 add_subdirectory(BP7_Text)
+
+add_subdirectory(BP8_Smoothing)
