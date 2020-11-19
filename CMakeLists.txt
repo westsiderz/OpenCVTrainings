@@ -13,3 +13,5 @@ add_subdirectory(BP4_BlendingTwoImages)
 add_subdirectory(BP5_BrightnessAdjustment)
 
 add_subdirectory(BP6_BasicDrawings)
+
+add_subdirectory(BP7_Text)
