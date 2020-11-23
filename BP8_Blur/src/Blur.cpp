@@ -33,24 +33,53 @@ void blurImage()
 		 BORDER_DEFAULT);
 		 
 	Mat l_gaussianBlurImage = l_image.clone();
+    l_bluringKernelSize.width = 25;
+    l_bluringKernelSize.height = 25;
+    // Apply Gaussian blur
 	GaussianBlur( l_image,
 				  l_gaussianBlurImage, 
 				  l_bluringKernelSize, 
 				  0, 0,
 				  BORDER_DEFAULT );
+
+    Mat l_medianBlurImage = l_image.clone();
+    int l_medianKernelSize = 13;
+    // Apply median blur
+    medianBlur(l_image,
+        l_medianBlurImage,
+        l_medianKernelSize
+        );
+
+    Mat l_bilateralFilterBlurImage = l_image.clone();
+    int l_bilateralFilterKernelSize = 15;
+    // Apply Bilateral Filter blur
+    bilateralFilter(l_image,
+        l_bilateralFilterBlurImage,
+        l_bilateralFilterKernelSize,
+        l_bilateralFilterKernelSize*2, 
+        l_bilateralFilterKernelSize/2,
+        BORDER_DEFAULT);
 		 
 
     // Display the input image
     namedWindow("Input", WINDOW_NORMAL);
     cv::imshow("Input", l_image);
     
-    // Display the input image
+    // Display the Homogeneous Blur image
     namedWindow("Homogeneous Blur", WINDOW_NORMAL);
     cv::imshow("Homogeneous Blur", l_homogeneousBlurImage);
     
-     // Display the input image
+    // Display the Gaussion Blur image
     namedWindow("Gaussian Blur", WINDOW_NORMAL);
     cv::imshow("Gaussian Blur", l_gaussianBlurImage);
+
+    // Display the Median Blur image
+    namedWindow("Median Blur", WINDOW_NORMAL);
+    cv::imshow("Median Blur", l_medianBlurImage);
+
+    // Display the Bilateral Filter Blur image
+    namedWindow("Bilateral Filter Blur", WINDOW_NORMAL);
+    cv::imshow("Bilateral Filter Blur", l_bilateralFilterBlurImage);
 }
 
 
