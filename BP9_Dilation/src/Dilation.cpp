@@ -7,7 +7,7 @@ using namespace cv;
 void dilateImage()
 {
     // Path to the input image
-    std::string l_pathToInputImage{ "../Resources/loveSymbol.jpg" };
+    std::string l_pathToInputImage{ "../Resources/kiss.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image;
@@ -23,11 +23,12 @@ void dilateImage()
     
     Mat l_outputImage = l_image.clone();
     
-    int l_dilationSize = 19;
-    Mat l_dilatingElement = getStructuringElement(  MORPH_ELLIPSE,
+    int l_dilationSize = 3;
+    Mat l_dilatingElement = getStructuringElement(  MORPH_RECT,
                        Size( 2*l_dilationSize + 1, 2*l_dilationSize+1 ),
                        Point( l_dilationSize, l_dilationSize ) );
-                       
+    
+    // https://answers.opencv.org/question/100746/why-in-open-cv-morphology-operations-is-inverted/                  
     dilate( l_image, l_outputImage, l_dilatingElement );
 		 
 
