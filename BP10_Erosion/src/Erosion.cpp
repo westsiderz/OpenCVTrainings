@@ -4,7 +4,7 @@
 
 using namespace cv;
 
-void dilateImage()
+void erodeImage()
 {
     // Path to the input image
     std::string l_pathToInputImage{ "../Resources/kiss.jpg" };
@@ -25,14 +25,14 @@ void dilateImage()
     Mat l_outputImage = l_image.clone();
     
     // Creating the structuring element for the morphological operation
-    int l_dilationSize = 3;
-    Mat l_dilatingElement = getStructuringElement(  MORPH_RECT,
-                       Size( 2*l_dilationSize + 1, 2*l_dilationSize+1 ),
-                       Point( l_dilationSize, l_dilationSize ) );
+    int l_erosionSize = 3;
+    Mat l_erodingElement = getStructuringElement(  MORPH_RECT,
+                       Size( 2*l_erosionSize + 1, 2*l_erosionSize+1 ),
+                       Point( l_erosionSize, l_erosionSize ) );
     
-    // https://answers.opencv.org/question/100746/why-in-open-cv-morphology-operations-is-inverted/     
-    // Dilate the image              
-    dilate( l_image, l_outputImage, l_dilatingElement );
+    // https://answers.opencv.org/question/100746/why-in-open-cv-morphology-operations-is-inverted/  
+    // Eroding the image                
+    erode( l_image, l_outputImage, l_erodingElement );
 		 
 
     // Display the input image
@@ -47,7 +47,7 @@ void dilateImage()
 
 int main()
 {
-    dilateImage();
+    erodeImage();
 
     waitKey(0);
     return 0;

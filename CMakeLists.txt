@@ -19,3 +19,5 @@ add_subdirectory(BP7_Text)
 add_subdirectory(BP8_Blur)
 
 add_subdirectory(BP9_Dilation)
+
+add_subdirectory(BP10_Erosion)
