@@ -29,8 +29,7 @@ void dilateImage()
     Mat l_dilatingElement = getStructuringElement(  MORPH_RECT,
                        Size( 2*l_dilationSize + 1, 2*l_dilationSize+1 ),
                        Point( l_dilationSize, l_dilationSize ) );
-    
-    // https://answers.opencv.org/question/100746/why-in-open-cv-morphology-operations-is-inverted/     
+        
     // Dilate the image              
     dilate( l_image, l_outputImage, l_dilatingElement );
 		 
