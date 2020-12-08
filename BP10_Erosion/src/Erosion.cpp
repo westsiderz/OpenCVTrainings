@@ -29,8 +29,7 @@ void erodeImage()
     Mat l_erodingElement = getStructuringElement(  MORPH_RECT,
                        Size( 2*l_erosionSize + 1, 2*l_erosionSize+1 ),
                        Point( l_erosionSize, l_erosionSize ) );
-    
-    // https://answers.opencv.org/question/100746/why-in-open-cv-morphology-operations-is-inverted/  
+      
     // Eroding the image                
     erode( l_image, l_outputImage, l_erodingElement );
 		 
