@@ -21,3 +21,5 @@ add_subdirectory(BP8_Blur)
 add_subdirectory(BP9_Dilation)
 
 add_subdirectory(BP10_Erosion)
+
+add_subdirectory(BP11_MorphologicalOperations)
