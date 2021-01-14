@@ -192,7 +192,7 @@ void applyBlackhat()
                        Point( l_blackHatSize, l_blackHatSize ) );
       
     // Applying the Black hat Morphological operation               
-    morphologyEx( l_image, l_outputImage, MORPH_TOPHAT, l_blackHatElement );
+    morphologyEx( l_image, l_outputImage, MORPH_BLACKHAT, l_blackHatElement );
 		 
 
     // Display the input image
