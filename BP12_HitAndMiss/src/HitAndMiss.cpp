@@ -9,12 +9,12 @@ using namespace cv;
 void applyHitAndMiss()
 {
     // Path to the input image
-    std::string l_pathToInputImage{ "../Resources/women.jpg" };
+    std::string l_pathToInputImage{ "../Resources/loveSymbol.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image;
     // Read the image date from a file with no change to color scheme
-    l_image = imread(l_pathToInputImage, IMREAD_GRAYSCALE);
+    l_image = imread(l_pathToInputImage, IMREAD_UNCHANGED);
 
 	// Check if we have read the first image data correctly
     if (!l_image.data)
@@ -28,9 +28,9 @@ void applyHitAndMiss()
     
     // Creating the structuring element for the morphological operation              
 	Mat kernel = (Mat_<int>(3, 3) <<
-	1,  0, 0,
-	1, -1, 0,
-	1,  0, 0 );
+	0,  0, 0,
+	0, -1, 0,
+	1,  1, 1 );
       
     // Applying the Gradient Morphological operation               
     morphologyEx( l_image, l_outputImage, MORPH_HITMISS, kernel );
