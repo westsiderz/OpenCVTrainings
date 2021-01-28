@@ -25,3 +25,5 @@ add_subdirectory(BP10_Erosion)
 add_subdirectory(BP11_MorphologicalOperations)
 
 add_subdirectory(BP12_HitAndMiss)
+
+add_subdirectory(BP13_ImagePyramids)
