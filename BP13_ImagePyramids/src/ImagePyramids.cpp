@@ -37,7 +37,7 @@ void printText(InputOutputArray inputImage)
         false);
 }
 
-// Upscale an image
+// Upscale an image by a given factor
 void upscaleImage(int upscaleFactor)
 {
     // Path to the input image
@@ -61,11 +61,11 @@ void upscaleImage(int upscaleFactor)
     // Upscale the image several times
     for (int i = 0; i < upscaleFactor / 2; ++i)
     {
-        // Upscale the image. Upscaling can only be done to factor of two
+        // Upscale the image. Upscaling can only be done by a factor of two
         pyrUp(l_outputImage, l_outputImage, Size(l_outputImage.cols * 2, l_outputImage.rows * 2));
     }
 
-    // Add the resolution values on top of the image
+    // Print the resolution values on top of the image
     printText(l_image);
     printText(l_outputImage);
 
@@ -99,13 +99,14 @@ void downscaleImage(int downscaleFactor)
     // Create the output image matrix
     Mat l_outputImage = l_image.clone();
 
+    // Downscale the image several times
     for (int i = 0; i < downscaleFactor / 2; ++i)
     {
-        // Upscale the image
+        // Downscale the image. Downscaling can only be done by a factor of two
         pyrDown(l_outputImage, l_outputImage, Size(l_outputImage.cols / 2, l_outputImage.rows / 2));
     }
 
-    // Add the resolution values on top of the image
+    // Print the resolution values on top of the image
     printText(l_image);
     printText(l_outputImage);
 
@@ -118,7 +119,7 @@ void downscaleImage(int downscaleFactor)
     cv::imshow("Result", l_outputImage);
 }
 
-// Downscale an image
+// Create an image pyramid
 void createImagePyramid(int level)
 {
     // Path to the input image
@@ -136,16 +137,19 @@ void createImagePyramid(int level)
         return;
     }
 
-    // Create the output image matrix
+    // Create the output image matrix to store the scaled images
     std::vector<Mat> l_pyramid;
+
+    // Build the image pyramid
     buildPyramid(l_image, l_pyramid, level);
 
+    // Display the image pyramid one image per window
     for (int i = 0; i < l_pyramid.size(); ++i)
     {
         Mat l_result = l_pyramid.at(i);
         printText(l_result);
-        namedWindow("Output" + std::to_string(i), WINDOW_AUTOSIZE);
-        imshow("Output" + std::to_string(i), l_result);
+        namedWindow("Result " + std::to_string(i), WINDOW_AUTOSIZE);
+        imshow("Result " + std::to_string(i), l_result);
     }
 }
 
@@ -154,7 +158,7 @@ int main()
 {
     //upscaleImage(4);
     //downscaleImage(2);
-    createImagePyramid(3);
+    createImagePyramid(4);
 
     waitKey(0);
     return 0;
