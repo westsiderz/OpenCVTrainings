@@ -74,7 +74,7 @@ void convertColorToGrayscale()
     cv::imshow("Result", l_outputImage);
 }
 
-// Convert grayscale image to color image 
+// Convert between different color spaces 
 void convertBGRRBGColorToXXXColor()
 {
     // Path to the input image
