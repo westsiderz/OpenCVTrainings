@@ -29,3 +29,5 @@ add_subdirectory(BP12_HitAndMiss)
 add_subdirectory(BP13_ImagePyramids)
 
 add_subdirectory(BP14_ColorConversion)
+
+add_subdirectory(BP15_Colormap)
