@@ -31,3 +31,5 @@ add_subdirectory(BP13_ImagePyramids)
 add_subdirectory(BP14_ColorConversion)
 
 add_subdirectory(BP15_Colormap)
+
+add_subdirectory(BP16_Thresholding)
