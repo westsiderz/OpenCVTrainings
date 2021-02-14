@@ -65,11 +65,11 @@ void applyRandomLinearFilter()
     Mat l_outputImage;
 
     // Create the kernel
-    constexpr float c_kernelDiv = static_cast<float>(1.0f/16.0f);
+    constexpr float c_kernelDiv = static_cast<float>(1.0f/24.0f);
     Mat l_kernel = c_kernelDiv * (Mat_<float>(3, 3) <<
-        1,  2,  1,
-        2,  4,  2,
-        1,  2,  1);
+        1,  4,  1,
+        2,  8,  2,
+        1,  4,  1);
 
     // Apply the filter
     filter2D(l_image, l_outputImage, -1, l_kernel);
