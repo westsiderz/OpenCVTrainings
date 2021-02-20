@@ -9,7 +9,7 @@ using namespace cv;
 void colorizeGrayscaleImagePredefinedMap()
 {
     // Path to the input image
-    std::string l_pathToInputImage{ "../Resources/tesla.jpg" };
+    std::string l_pathToInputImage{ "../Resources/youngster.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image;
@@ -42,7 +42,7 @@ void colorizeGrayscaleImagePredefinedMap()
 void colorizeGrayscaleImageUserDefinedMap()
 {
     // Path to the input image
-    std::string l_pathToInputImage{ "../Resources/women.jpg" };
+    std::string l_pathToInputImage{ "../Resources/youngBlood.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image;

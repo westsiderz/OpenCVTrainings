@@ -7,7 +7,7 @@ using namespace cv;
 void erodeImage()
 {
     // Path to the input image
-    std::string l_pathToInputImage{ "../Resources/kiss.jpg" };
+    std::string l_pathToInputImage{ "../Resources/hazard.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image;

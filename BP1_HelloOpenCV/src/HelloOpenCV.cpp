@@ -8,7 +8,7 @@ int main()
     // Create an object that will hold the image data
     Mat image;
     // Read the image date from a file as a BGR color image
-    image = imread( "../Resources/tesla.jpg", IMREAD_COLOR );
+    image = imread( "../Resources/op.jpg", IMREAD_COLOR );
 
     // Check if we have read the image data correctly
     if ( !image.data )

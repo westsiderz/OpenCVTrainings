@@ -170,12 +170,12 @@ void readGrayscaleReducedJPGWriteSameType()
 int main()
 {
     readColorJPGWriteSameType();
-    readColorJPGWriteDifferentType();
-    readColorPNGWriteDifferentType();
-    readGrayscaleJPGWriteSameType();
-    readGrayscalePNGWriteSameType();
-    readColorReducedJPGWriteSameType();
-    readGrayscaleReducedJPGWriteSameType();
+    //readColorJPGWriteDifferentType();
+    //readColorPNGWriteDifferentType();
+    //readGrayscaleJPGWriteSameType();
+    //readGrayscalePNGWriteSameType();
+    //readColorReducedJPGWriteSameType();
+    //readGrayscaleReducedJPGWriteSameType();
 
     waitKey(0);
     return 0;

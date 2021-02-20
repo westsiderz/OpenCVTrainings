@@ -250,10 +250,10 @@ void invertColorUsingLut()
 
 int main()
 {
-    initMat();
-    reduceColor(100);
-    increaseColor(100);
-    invertColor();
+    //initMat();
+    //reduceColor(100);
+    //increaseColor(100);
+    //invertColor();
     invertColorUsingLut();
 
     waitKey(0);

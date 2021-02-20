@@ -125,7 +125,7 @@ void correctGamma()
 
 int main()
 {
-    increaseBrightness();
+    //increaseBrightness();
     correctGamma();
 
     waitKey(0);

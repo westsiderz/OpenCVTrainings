@@ -8,7 +8,7 @@ void blendImages()
 {
     // Paths to the input images
     std::string l_pathToInputImage1{ "../Resources/city.jpg" };
-    std::string l_pathToInputImage2{ "../Resources/autumn.jpg" };
+    std::string l_pathToInputImage2{ "../Resources/car.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image1;

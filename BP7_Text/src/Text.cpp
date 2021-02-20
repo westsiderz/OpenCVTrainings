@@ -28,7 +28,7 @@ void displayText()
         72,
         l_lineThickness) };
 
-    const String l_text{ "My lovely city" };
+    const String l_text{ "With my hommie" };
     // Calculate the text string size
     Size l_textSize{ getTextSize(l_text,
         l_fontType,

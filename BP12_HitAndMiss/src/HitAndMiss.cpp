@@ -13,8 +13,8 @@ void applyHitOrMissImage()
 
     // Create an object to hold the image data of the first image
     Mat l_image;
-    // Read the image date from a file with no change to color scheme
-    l_image = imread(l_pathToInputImage, IMREAD_UNCHANGED);
+    // Read the image date from a file in grayscale because 8UC1 format is required
+    l_image = imread(l_pathToInputImage, IMREAD_GRAYSCALE);
 
 	// Check if we have read the first image data correctly
     if (!l_image.data)
@@ -83,8 +83,8 @@ void applyHitOrMissMatrix()
 
 int main()
 {
-    //applyHitOrMissImage();
-    applyHitOrMissMatrix();
+    applyHitOrMissImage();
+    //applyHitOrMissMatrix();
 
     waitKey(0);
     return 0;

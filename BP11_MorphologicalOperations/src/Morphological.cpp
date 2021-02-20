@@ -66,7 +66,7 @@ void applyClosing()
     Mat l_outputImage = l_image.clone();
     
     // Creating the structuring element for the morphological operation
-    int l_closingSize = 5;
+    int l_closingSize = 7;
     Mat l_closingElement = getStructuringElement( MORPH_RECT,
                        Size( 2*l_closingSize + 1, 2*l_closingSize+1 ),
                        Point( l_closingSize, l_closingSize ) );
@@ -128,7 +128,7 @@ void applyGradient()
 void applyTophat()
 {
     // Path to the input image
-    std::string l_pathToInputImage{ "../Resources/kiss.jpg" };
+    std::string l_pathToInputImage{ "../Resources/hazard.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image;
@@ -168,7 +168,7 @@ void applyTophat()
 void applyBlackhat()
 {
     // Path to the input image
-    std::string l_pathToInputImage{ "../Resources/kiss.jpg" };
+    std::string l_pathToInputImage{ "../Resources/hazard.jpg" };
 
     // Create an object to hold the image data of the first image
     Mat l_image;

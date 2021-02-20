@@ -25,7 +25,7 @@ set(OPENCV_LIBRARIES 		${OPENCV_LIBRARY_DIRS}/libopencv_calib3d.so
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL  "Windows")
 set(OPENCV_INCLUDE_DIRS 	${CMAKE_CURRENT_SOURCE_DIR}/../../opencv_build/install/include)
 
-set(OPENCV_LIBRARY_DIRS 	${CMAKE_CURRENT_SOURCE_DIR}/../../opencv_build/install/x64/vc15/lib)
+set(OPENCV_LIBRARY_DIRS 	${CMAKE_CURRENT_SOURCE_DIR}/../../opencv_build/install/x64/vc16/lib)
 
 set(OPENCV_LIBRARIES 		${OPENCV_LIBRARY_DIRS}/opencv_calib3d450d.lib
 							${OPENCV_LIBRARY_DIRS}/opencv_core450d.lib
