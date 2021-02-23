@@ -1,37 +1,11 @@
 cmake_minimum_required(VERSION 3.0)
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/AdditionalCmake/Macros.cmake)
+
 project( OpenCVTrainings )
 
-add_subdirectory(BP1_HelloOpenCV)
+ProjectSubdirList(SUBDIRS ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_subdirectory(BP2_ImageReadWrite)
-
-add_subdirectory(BP3_ImageMatrix)
-
-add_subdirectory(BP4_BlendingTwoImages)
-
-add_subdirectory(BP5_BrightnessAdjustment)
-
-add_subdirectory(BP6_BasicDrawings)
-
-add_subdirectory(BP7_Text)
-
-add_subdirectory(BP8_Blur)
-
-add_subdirectory(BP9_Dilation)
-
-add_subdirectory(BP10_Erosion)
-
-add_subdirectory(BP11_MorphologicalOperations)
-
-add_subdirectory(BP12_HitAndMiss)
-
-add_subdirectory(BP13_ImagePyramids)
-
-add_subdirectory(BP14_ColorConversion)
-
-add_subdirectory(BP15_Colormap)
-
-add_subdirectory(BP16_Thresholding)
-
-add_subdirectory(BP17_LinearFilter)
+FOREACH(subdir ${SUBDIRS})
+  add_subdirectory(${subdir})
+ENDFOREACH()

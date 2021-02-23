@@ -51,13 +51,15 @@ void blurImage()
         );
 
     Mat l_bilateralFilterBlurImage = l_image.clone();
-    double l_bilateralFilterKernelSize = 15.0;
+    constexpr int l_bilateralFilterKernelSize = 15;
+    constexpr double l_bilateralFilterKernelSigmaColor = l_bilateralFilterKernelSize * 2.0;
+    constexpr double l_bilateralFilterKernelSigmaSpace = l_bilateralFilterKernelSize / 2.0;
     // Apply Bilateral Filter blur
     bilateralFilter(l_image,
         l_bilateralFilterBlurImage,
         l_bilateralFilterKernelSize,
-        l_bilateralFilterKernelSize*2, 
-        l_bilateralFilterKernelSize/2,
+        l_bilateralFilterKernelSigmaColor,
+        l_bilateralFilterKernelSigmaSpace,
         BORDER_DEFAULT);
 		 
 

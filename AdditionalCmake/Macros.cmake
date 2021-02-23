@@ -1,0 +1,11 @@
+#List all subdirectories which contain a project
+MACRO(ProjectSubdirList output currentDir)
+  file(GLOB children BP*)
+  set(dirlist "")
+  FOREACH(child ${children})
+    IF(IS_DIRECTORY ${child})
+      list(APPEND dirlist ${child})
+    ENDIF()
+  ENDFOREACH()
+  set(${output} ${dirlist})
+ENDMACRO()
