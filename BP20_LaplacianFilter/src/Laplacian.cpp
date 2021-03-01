@@ -31,11 +31,11 @@ void applyLaplacianFilter()
     // Create the Laplacian result matrix
     Mat l_laplacian{};
     constexpr int c_depth = -1;
-    constexpr int c_size = 3;
+    constexpr int c_size = 5;
     constexpr double c_scale = 1.0;
     constexpr double c_delta = 0.0;
 
-    // Apply the Sobel filters
+    // Apply the Laplace filter
     Laplacian(l_image, l_laplacian, c_depth, c_size, c_scale, c_delta);
 
     // Convert back to CV_8U
