@@ -1,0 +1,7 @@
+project( BP21_Transformations )
+
+set(SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/Transformations.cpp)
+
+add_executable( ${PROJECT_NAME} ${SOURCE_FILES} )
+
+include(${CMAKE_CURRENT_SOURCE_DIR}/../AdditionalCmake/OpenCVCMake.cmake)
