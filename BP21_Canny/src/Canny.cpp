@@ -76,15 +76,15 @@ void applyCannyWithDerivatives()
     constexpr double c_lowerThreshold = 30.0;
     constexpr double c_upperThreshold = c_lowerThreshold * 3.0;
 
-    // Create the Sobel results
-    Mat l_xSobel{};
-    Mat l_ySobel{};
+    // Create the gradients results
+    Mat l_xGradient{};
+    Mat l_yGradient{};
 
     // Apply the spatial gradient
-    spatialGradient(l_noiseRemovedImage, l_xSobel, l_ySobel, c_kernelSize);
+    spatialGradient(l_noiseRemovedImage, l_xGradient, l_yGradient, c_kernelSize);
 
     // Apply the canny edge detection
-    Canny(l_xSobel, l_ySobel, l_outputImage, c_lowerThreshold, c_upperThreshold, false);
+    Canny(l_xGradient, l_yGradient, l_outputImage, c_lowerThreshold, c_upperThreshold, false);
 
     // Display the input image
     namedWindow("Input", WINDOW_NORMAL);
