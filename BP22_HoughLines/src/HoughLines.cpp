@@ -158,10 +158,68 @@ void applyHoughProbabilisticLineTransform()
     cv::imshow("Result Hough Transform", l_outputHough);
 }
 
+void applyHoughLineTransformOnSetOfPoints()
+{
+    Mat l_transformResult{};
+    std::vector<Vec3d> l_outputLines{};
+    // The set of points to apply the Hough Line transform on
+    std::vector<Vec2f> l_inputPoints
+    {
+        { 0.0f,   369.0f }, { 10.0f,  364.0f }, { 20.0f,  358.0f }, { 30.0f,  352.0f },
+        { 40.0f,  346.0f }, { 50.0f,  341.0f }, { 60.0f,  335.0f }, { 70.0f,  329.0f },
+        { 80.0f,  323.0f }, { 90.0f,  318.0f }, { 100.0f, 312.0f }, { 110.0f, 306.0f },
+        { 120.0f, 300.0f }, { 130.0f, 295.0f }, { 140.0f, 289.0f }, { 150.0f, 284.0f },
+        { 160.0f, 277.0f }, { 170.0f, 271.0f }, { 180.0f, 266.0f }, { 190.0f, 260.0f }
+    };
+
+    // The required constants
+    constexpr int c_maxLines = 20;
+    constexpr int c_threshold = 2;
+    constexpr double c_distanceMin = 0.0;
+    constexpr double c_distanceMax = 360.0;
+    constexpr double c_distanceStep = 1.0;
+    constexpr double c_angleMin = 0.0;
+    constexpr double c_angleMax = CV_PI / 2.0;
+    constexpr double c_angleStep = CV_PI / 180.0;
+
+    // Apply the Hough Line transform
+    HoughLinesPointSet(l_inputPoints, l_transformResult, c_maxLines, c_threshold,
+        c_distanceMin, c_distanceMax, c_distanceStep, c_angleMin, c_angleMax, c_angleStep);
+
+    // Copy the results
+    l_transformResult.copyTo(l_outputLines);
+
+    // Draw the result lines
+    Mat l_result{ 600, 400, CV_8UC3, Scalar{255, 255, 255} };
+    for (size_t i = 0; i < l_outputLines.size(); ++i)
+    {
+        // Calculate the needed values and points coordinates
+        constexpr int l_lineThickness = 2;
+        double l_rho = l_outputLines.at(i)[1];
+        double l_theta = l_outputLines.at(i)[2];
+        double l_cosTheta = std::cos(l_theta);
+        double l_sinTheta = sin(l_theta);
+        double l_initXPoint = l_rho * l_cosTheta;
+        double l_initYPoint = l_rho * l_sinTheta;
+        Point l_startPoint{ cvRound(l_initXPoint + 1000 * (-l_sinTheta)),
+            cvRound(l_initYPoint + 1000 * (l_cosTheta)) };
+        Point l_endPoint{ cvRound(l_initXPoint - 1000 * (-l_sinTheta)),
+            cvRound(l_initYPoint - 1000 * (l_cosTheta)) };
+
+        // Draw the line
+        line(l_result, l_startPoint, l_endPoint, Scalar(0, 255, 0), l_lineThickness, LINE_AA);
+    }
+
+    // Display the input image
+    namedWindow("Output", WINDOW_NORMAL);
+    cv::imshow("Output", l_result);
+}
+
 int main()
 {
     //applyHoughLineTransform();
-    applyHoughProbabilisticLineTransform();
+    //applyHoughProbabilisticLineTransform();
+    applyHoughLineTransformOnSetOfPoints();
 
     waitKey(0);
     return 0;
