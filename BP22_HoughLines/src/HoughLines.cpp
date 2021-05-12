@@ -158,6 +158,7 @@ void applyHoughProbabilisticLineTransform()
     cv::imshow("Result Hough Transform", l_outputHough);
 }
 
+// Apply the Hough Line Transform operation to a set of points
 void applyHoughLineTransformOnSetOfPoints()
 {
     Mat l_transformResult{};
