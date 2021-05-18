@@ -47,18 +47,18 @@ void applyHoughCircleTransform()
 
     // Create constants and variables to hold the results from the Hough transform 
     constexpr double c_accumulatorResolution = 1;
-    const double c_minimumDistance = l_outputImageCanny.rows/16;
+    const double c_minimumDistance = l_outputImageCanny.rows/10;
     constexpr double c_param1 = 100;
     constexpr double c_param2 = 35;
-    constexpr double c_minimumRadius = 1;
-    constexpr double c_maximumRadius = 300;
+    constexpr int c_minimumRadius = 1;
+    constexpr int c_maximumRadius = 300;
     std::vector<Vec3f> l_foundCircles;
     
     // Apply the Hough Circle Transform
     HoughCircles(l_outputImageCanny, l_foundCircles, HOUGH_GRADIENT, c_accumulatorResolution, c_minimumDistance, 
         c_param1, c_param2, c_minimumRadius, c_maximumRadius);
 
-    // Draw the result lines
+    // Draw the result circles
     for (size_t i = 0; i < l_foundCircles.size(); ++i)
     {
         constexpr int c_lineThickness = 3;
