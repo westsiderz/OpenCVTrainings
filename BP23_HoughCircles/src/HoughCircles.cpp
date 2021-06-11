@@ -42,20 +42,17 @@ void applyHoughCircleTransform()
     constexpr double c_lowerThreshold = 30.0;
     constexpr double c_upperThreshold = c_lowerThreshold * 3.0;
 
-    // Apply the canny edge detection
-    Canny(l_noiseRemovedImage, l_outputImageCanny, c_lowerThreshold, c_upperThreshold, c_kernelSize, false);
-
     // Create constants and variables to hold the results from the Hough transform 
     constexpr double c_accumulatorResolution = 1;
-    const double c_minimumDistance = l_outputImageCanny.rows/10;
-    constexpr double c_param1 = 100;
-    constexpr double c_param2 = 35;
-    constexpr int c_minimumRadius = 1;
-    constexpr int c_maximumRadius = 300;
+    const double c_minimumDistance = l_noiseRemovedImage.rows/64;
+    constexpr double c_param1 = 300;
+    constexpr double c_param2 = 0.8;
+    constexpr int c_minimumRadius = 0;
+    constexpr int c_maximumRadius = 0;
     std::vector<Vec3f> l_foundCircles;
     
     // Apply the Hough Circle Transform
-    HoughCircles(l_outputImageCanny, l_foundCircles, HOUGH_GRADIENT, c_accumulatorResolution, c_minimumDistance, 
+    HoughCircles(l_noiseRemovedImage, l_foundCircles, HOUGH_GRADIENT_ALT, c_accumulatorResolution, c_minimumDistance,
         c_param1, c_param2, c_minimumRadius, c_maximumRadius);
 
     // Draw the result circles
@@ -71,10 +68,6 @@ void applyHoughCircleTransform()
     // Display the input image
     namedWindow("Input", WINDOW_NORMAL);
     cv::imshow("Input", l_image);
-
-    // Display the Canny result image
-    namedWindow("Result Canny", WINDOW_NORMAL);
-    cv::imshow("Result Canny", l_outputImageCanny);
 
     // Display the Hough Transform result image
     namedWindow("Result Hough Transform", WINDOW_NORMAL);
