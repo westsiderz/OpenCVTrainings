@@ -31,7 +31,6 @@ void applyHoughCircleTransform()
 
     // Create the output image matrices
     Mat l_noiseRemovedImage{};
-    Mat l_outputImageCanny{};
     Mat l_outputHough = l_image.clone();
 
     // Remove any noise
