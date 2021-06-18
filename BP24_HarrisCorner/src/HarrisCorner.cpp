@@ -6,7 +6,7 @@
 
 using namespace cv;
 
-// Apply the Hough Circle Transform operation to an image
+// Apply the Harris Corner Detection operation to an image
 void applyHarrisCornerDetection()
 {
     // Path to the input image
@@ -32,8 +32,8 @@ void applyHarrisCornerDetection()
     // Harris corner detection constants
     constexpr int const c_blockSize = 2;
     constexpr int const c_apertureSize = 3;
-    constexpr double const c_kParameter = 0.04;
-    constexpr int const c_threshold = 100;
+    constexpr double const c_kParameter = 0.06;
+    constexpr int const c_threshold = 120;
 
     // Apply the Harris corner detection
     Mat l_outputHarris = Mat::zeros(l_image.size(), CV_32FC1);
