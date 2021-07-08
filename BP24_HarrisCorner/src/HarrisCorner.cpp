@@ -62,7 +62,7 @@ void applyHarrisCornerDetection()
     namedWindow("Input", WINDOW_NORMAL);
     cv::imshow("Input", l_image);
 
-    // Display the Hough Transform result image
+    // Display the Harris transform result image
     namedWindow("Result Harris Corner Detection", WINDOW_NORMAL);
     cv::imshow("Result Harris Corner Detection", l_outputHarrisScaled);
 }

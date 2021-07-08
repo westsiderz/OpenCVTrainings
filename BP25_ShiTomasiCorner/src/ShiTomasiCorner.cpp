@@ -55,7 +55,7 @@ void applyShiTomasiCornerDetection()
     namedWindow("Input", WINDOW_NORMAL);
     cv::imshow("Input", l_image);
 
-    // Display the Hough Transform result image
+    // Display the Shi-Tomasi result image
     namedWindow("Result Shi-Tomasi Corner Detection", WINDOW_NORMAL);
     cv::imshow("Result Shi-Tomasi Corner Detection", l_results);
 }
