@@ -30,7 +30,7 @@ void boundContours()
     cvtColor(l_image, l_imageGrayscale, COLOR_BGR2GRAY);
     blur(l_imageGrayscale, l_imageGrayscale, Size{ 3,3 });
 
-    // Apply the canny edge detection
+    // Apply the Canny edge detection
     constexpr int c_kernelSize = 3;
     constexpr double c_lowerThreshold = 30.0;
     constexpr double c_upperThreshold = c_lowerThreshold * 3.0;
@@ -69,7 +69,7 @@ void boundContours()
     namedWindow("Input", WINDOW_NORMAL);
     cv::imshow("Input", l_image);
 
-    // Display the contour result image
+    // Display the result image
     namedWindow("Result", WINDOW_NORMAL);
     cv::imshow("Result", l_result);
 }
@@ -142,7 +142,7 @@ void rotatedBoundContours()
     namedWindow("Input", WINDOW_NORMAL);
     cv::imshow("Input", l_image);
 
-    // Display the contour result image
+    // Display the result image
     namedWindow("Result", WINDOW_NORMAL);
     cv::imshow("Result", l_result);
 }
