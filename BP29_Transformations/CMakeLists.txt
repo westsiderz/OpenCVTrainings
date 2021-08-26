@@ -1,4 +1,4 @@
-project( BP2X_Transformations )
+project( BP29_Transformations )
 
 set(SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/Transformations.cpp)
 
